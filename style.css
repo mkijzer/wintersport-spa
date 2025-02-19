@@ -1,0 +1,366 @@
+body {
+  overflow: hidden;
+} /* Disable scrolling */
+/* Background Image */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/overdag.png"); /* Path to your image */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Ensure it's behind all other content */
+  filter: blur(3px); /* Apply blur to the entire background image */
+  background-color: rgba(173, 216, 230, 0.5); /* Light blue color filter */
+}
+
+/* Add blur effect on top and bottom */
+.background::before,
+.background::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20%; /* Adjust the height of the blurred areas */
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent black for blending */
+  filter: blur(10px); /* Apply blur */
+  z-index: 1;
+}
+
+.background::before {
+  top: 0;
+}
+
+.background::after {
+  bottom: 0;
+}
+
+/* Snow Conditions (Left) */
+.snow-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.snow-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.snow-info img {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Weather Info (Top Right) */
+
+.weather-info {
+  position: absolute;
+  top: 15%;
+  right: 10px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.weather-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.weather-info img {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Entertainment Button (Center) */
+.entertainment-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* Update movie title styling */
+.movie-title {
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 165, 0, 0.8),
+    0 0 30px rgba(255, 165, 0, 0.8); /* Changed to orange */
+}
+
+.movie-title h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 8rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 0.9;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+/* Figures - Overlapping Movie Poster Style */
+
+.figure-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.figures img {
+  position: absolute;
+  transition: filter 0.3s;
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 70%,
+    /* Adjust this percentage to control where blur starts */ rgba(0, 0, 0, 0.3)
+      200% /* Adjust opacity to control blur intensity */
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+/* Adjusted Positions for Figures */
+.figure-alrik {
+  width: 83%;
+  height: 85 3%;
+  top: 5%;
+  left: 55%;
+  transform: translateX(-50%);
+}
+
+.figure-bart {
+  width: 80%;
+  height: 80%;
+  top: 18%;
+  left: -10%;
+  z-index: 6;
+}
+
+.figure-joene {
+  width: 75%;
+  height: 75%;
+  bottom: -10%;
+  left: 40%;
+  z-index: 7;
+}
+
+.figure-mike {
+  width: 75%;
+  height: 75%;
+  bottom: -5%;
+  left: 15%;
+  transform: translateX(-50%);
+  z-index: 9;
+}
+
+.figure-rob {
+  width: 75%;
+  height: 75%;
+  top: 20%;
+  right: 10%;
+  z-index: 10;
+}
+
+/* Update in style.css */
+.figures img {
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+
+.figures img.gray {
+  filter: grayscale(100%);
+}
+
+.gray {
+  filter: grayscale(100%) !important; /* Make sure grayscale is applied */
+}
+
+/* Add to style.css */
+
+.digital-clock {
+  position: absolute;
+  top: 5%; /* Changed from bottom */
+  right: 15%;
+  color: white; /* Changed from black */
+  padding: 10px;
+  font-family: "Digital", monospace;
+  font-size: 4rem;
+  z-index: 15; /* Make sure it's above the characters */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add glow effect */
+}
+
+/* Add this to your style.css */
+.info-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.info-modal.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.info-modal .weather-info,
+.info-modal .snow-info {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: none;
+  margin: 10px 0;
+}
+
+/* Add at the bottom of style.css */
+body.dark-mode .background {
+  background-image: url("assets/nacht.png"); /* Your night image placeholder */
+  background-color: rgba(0, 0, 32, 0.7); /* Darker blue overlay */
+}
+
+body.dark-mode .movie-title h1 {
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4),
+    0 0 30px rgba(255, 165, 0, 0.4);
+}
+
+body.dark-mode .weather-info,
+body.dark-mode .snow-info {
+  color: #e0e0e0;
+}
+body.dark-mode .figures img {
+  filter: grayscale(100%) brightness(0.8);
+}
+
+body.dark-mode .background {
+  background-image: url("assets/nacht.png");
+  background-color: rgba(0, 0, 32, 0.7);
+  filter: none;
+}
+
+body.dark-mode .digital-clock {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+/* Add to style.css */
+.map-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 90%;
+  height: 90%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.map-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.map-overlay iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.map-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1001;
+}
+
+.map-close,
+.map-external {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.spinner-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+.spinner-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.spinner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.spinner-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+}

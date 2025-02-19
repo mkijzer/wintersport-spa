@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duurt Lang</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    />
+  </head>
+  <body>
+    <!-- Background Image -->
+    <div class="background"></div>
+
+    <!-- Snow Conditions (Left) -->
+    <div class="snow-info" id="snow-info">
+      <p><img src="assets/icons/snowflake.svg" alt="Snow" /> Snow: -- cm</p>
+      <p><img src="assets/icons/wind.svg" alt="Wind" /> Wind: -- m/s</p>
+      <p>
+        <img src="assets/icons/temp.svg" alt="Freezing Level" /> Freezing Level:
+        -- m
+      </p>
+    </div>
+
+    <!-- Weather Info (Top Right) -->
+    <div class="weather-info" id="weather-info">
+      <p><img src="assets/icons/weather.svg" alt="Weather" /> --°C</p>
+    </div>
+
+    <!-- Entertainment Button (Center) -->
+    <!-- <div class="entertainment-btn">🎲</div> -->
+
+    <!-- Five Overlapping Figures (Bottom Center) -->
+    <!-- Update in index.html -->
+    <div class="figures">
+      <img src="assets/alrik.png" alt="Person 1" class="figure-alrik" />
+      <img src="assets/bart.png" alt="Person 2" class="figure-bart" />
+      <img src="assets/joene.png" alt="Person 3" class="figure-joene" />
+      <img src="assets/mike.png" alt="Person 4" class="figure-mike" />
+      <img src="assets/rob.png" alt="Person 5" class="figure-rob" />
+    </div>
+
+    <div class="movie-title">
+      <h1>Duurt Lang</h1>
+    </div>
+
+    <!-- Map Overlay -->
+    <div class="map-overlay">
+      <div class="map-buttons">
+        <button class="map-close">✕</button>
+        <button class="map-external">↗️</button>
+      </div>
+      <iframe
+        src="https://winter.intermaps.com/saalbach_hinterglemm_leogang_fieberbrunn?lang=en"
+      ></iframe>
+    </div>
+
+    <!-- Drink Spinner -->
+    <!-- In index.html -->
+    <div class="spinner-container">
+      <div class="spinner">
+        <div class="spinner-item">🍺</div>
+        <div class="spinner-item">🥃</div>
+        <div class="spinner-item">🍺</div>
+        <div class="spinner-item">🥃</div>
+        <div class="spinner-item">🍺</div>
+        <div class="spinner-item">🥃</div>
+        <div class="spinner-item">🍺</div>
+        <div class="spinner-item">🥃</div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
