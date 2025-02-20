@@ -1,3 +1,6 @@
+/* Import the Orbitron font */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
+
 /* Base Styles */
 body {
   overflow: hidden;
@@ -18,14 +21,14 @@ body {
   background-color: rgba(173, 216, 230, 0.5);
 }
 
-.background::before,
+/* .background::before,
 .background::after {
   content: "";
   position: absolute;
   width: 100%;
   height: 20%;
   background: rgba(0, 0, 0, 0.4);
-  filter: blur(10px);
+  filter: blur(30px);
   z-index: 1;
 }
 
@@ -35,6 +38,24 @@ body {
 
 .background::after {
   bottom: 0;
+} */
+
+/* New Bottom Info Section */
+.bottom-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%; /* 1/5th of the screen */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    /* Fully opaque black at the bottom */ rgba(0, 0, 0, 0.5) 30%,
+    /* Start lightening earlier at 30% */ rgba(0, 0, 0, 0) 70%
+      /* Fully transparent by 70% */
+  ); /* Gradient blur upward */
+  z-index: 5; /* Above background but below title */
+  overflow: hidden; /* Prevent content overflow */
 }
 
 /* Weather Info Styles */
@@ -76,24 +97,25 @@ body {
 /* Movie Title Styles */
 .movie-title {
   position: absolute;
-  bottom: -5%;
+  bottom: 0%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+  font-family: "Orbitron", monospace; /* Use Orbitron instead of "Digital" */
   width: 100%;
   text-align: center;
-  text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 165, 0, 0.8),
-    0 0 30px rgba(255, 165, 0, 0.8);
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(19, 13, 1, 0.8),
+    0 0 30px rgba(12, 8, 0, 0.8);
 }
 
 .movie-title h1 {
-  font-family: "Roboto", sans-serif;
-  font-size: 8rem;
-  font-weight: 700;
-  color: white;
+  font-family: "Orbitron", monospace; /* Use Orbitron instead of "Digital" */
+  font-size: 7rem;
+  font-weight: 1500;
+  color: rgb(1, 3, 0);
   text-transform: uppercase;
-  letter-spacing: 5px;
-  line-height: 0.9;
+  letter-spacing: 2px;
+  line-height: 0.8;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
     0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8);
 }
@@ -108,11 +130,11 @@ body {
 
 .collage-container {
   position: absolute;
-  width: 100%;
-  max-width: 1200px;
+  width: 110%;
+  max-width: 1250px;
   height: auto;
-  top: 65%;
-  left: 45%;
+  top: 69%;
+  left: 42%;
   transform: translate(-50%, -50%);
   isolation: isolate;
 }
@@ -172,13 +194,36 @@ body {
 .digital-clock {
   position: absolute;
   top: 5%;
-  right: 15%;
-  color: white;
+  right: 12%;
+  color: #170f0f;
   padding: 10px;
-  font-family: "Digital", monospace;
-  font-size: 4rem;
+  font-family: "Orbitron", monospace;
   z-index: 15;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 30px rgba(10, 4, 0, 0.5);
+  display: flex;
+  gap: 10px;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px; /* Fixed width instead of min-width */
+  min-width: 80px; /* Ensure it doesn't shrink below this */
+}
+
+.number {
+  font-size: 3rem;
+  width: 100%; /* Take up full width of time-unit */
+  text-align: center;
+  display: block; /* Ensure consistent rendering */
+}
+
+.label {
+  font-size: 0.7rem;
+  width: 100%; /* Take up full width of time-unit */
+  text-align: center;
+  display: block; /* Ensure consistent rendering */
 }
 
 /* Modal Styles */
