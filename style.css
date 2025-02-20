@@ -1,30 +1,31 @@
+/* Base Styles */
 body {
   overflow: hidden;
-} /* Disable scrolling */
-/* Background Image */
+}
+
+/* Background Styles */
 .background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("assets/overdag.png"); /* Path to your image */
+  background-image: url("assets/overdag.png");
   background-size: cover;
   background-position: center;
-  z-index: -1; /* Ensure it's behind all other content */
-  filter: blur(3px); /* Apply blur to the entire background image */
-  background-color: rgba(173, 216, 230, 0.5); /* Light blue color filter */
+  z-index: -1;
+  filter: blur(3px);
+  background-color: rgba(173, 216, 230, 0.5);
 }
 
-/* Add blur effect on top and bottom */
 .background::before,
 .background::after {
   content: "";
   position: absolute;
   width: 100%;
-  height: 20%; /* Adjust the height of the blurred areas */
-  background: rgba(0, 0, 0, 0.4); /* Semi-transparent black for blending */
-  filter: blur(10px); /* Apply blur */
+  height: 20%;
+  background: rgba(0, 0, 0, 0.4);
+  filter: blur(10px);
   z-index: 1;
 }
 
@@ -36,7 +37,7 @@ body {
   bottom: 0;
 }
 
-/* Snow Conditions (Left) */
+/* Weather Info Styles */
 .snow-info {
   position: absolute;
   top: 10px;
@@ -46,20 +47,20 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.snow-info p {
+.snow-info p,
+.weather-info p {
   display: flex;
   align-items: center;
   gap: 10px;
   margin: 5px 0;
 }
 
-.snow-info img {
+.snow-info img,
+.weather-info img {
   width: 24px;
   height: 24px;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
 }
-
-/* Weather Info (Top Right) */
 
 .weather-info {
   position: absolute;
@@ -72,33 +73,7 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.weather-info p {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 5px 0;
-}
-
-.weather-info img {
-  width: 24px;
-  height: 24px;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-
-/* Entertainment Button (Center) */
-.entertainment-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  color: black;
-  padding: 20px;
-  font-size: 18px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-/* Update movie title styling */
+/* Movie Title Styles */
 .movie-title {
   position: absolute;
   bottom: -5%;
@@ -108,7 +83,7 @@ body {
   width: 100%;
   text-align: center;
   text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 165, 0, 0.8),
-    0 0 30px rgba(255, 165, 0, 0.8); /* Changed to orange */
+    0 0 30px rgba(255, 165, 0, 0.8);
 }
 
 .movie-title h1 {
@@ -123,103 +98,90 @@ body {
     0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8);
 }
 
-/* Figures - Overlapping Movie Poster Style */
-
-.figure-wrapper {
+/* Figures Styles - Basic Structure */
+.figures {
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
-.figures img {
+.collage-container {
   position: absolute;
-  transition: filter 0.3s;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  top: 65%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  isolation: isolate;
+}
+
+.collage-image {
+  width: 112%;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+/* SVG Path Styles - Just Colors */
+.figure-paths {
+  position: absolute;
+  top: 0%;
+  left: -8%;
+  width: 112%;
+  height: auto;
+  pointer-events: all;
+}
+
+.path-overlay {
+  fill: transparent;
+  stroke: transparent;
   cursor: pointer;
-  pointer-events: auto;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 70%,
-    /* Adjust this percentage to control where blur starts */ rgba(0, 0, 0, 0.3)
-      200% /* Adjust opacity to control blur intensity */
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
 }
 
-/* Adjusted Positions for Figures */
-.figure-alrik {
-  width: 83%;
-  height: 85 3%;
-  top: 5%;
-  left: 55%;
-  transform: translateX(-50%);
+/* Individual Path Colors */
+.bart-path {
+  stroke: #201f13;
 }
 
-.figure-bart {
-  width: 80%;
-  height: 80%;
-  top: 18%;
-  left: -10%;
-  z-index: 6;
+.alrik-path {
+  stroke: #082ef6;
 }
 
-.figure-joene {
-  width: 75%;
-  height: 75%;
-  bottom: -10%;
-  left: 40%;
-  z-index: 7;
+.mike-path {
+  stroke: #11c42a;
 }
 
-.figure-mike {
-  width: 75%;
-  height: 75%;
-  bottom: -5%;
-  left: 15%;
-  transform: translateX(-50%);
-  z-index: 9;
+.rob-path {
+  stroke: #f41f07;
 }
 
-.figure-rob {
-  width: 75%;
-  height: 75%;
-  top: 20%;
-  right: 10%;
-  z-index: 10;
+.joene-path {
+  stroke: #ccd12d;
 }
 
-/* Update in style.css */
-.figures img {
-  cursor: pointer;
-  transition: filter 0.3s;
+/* When hovering one path, others turn grey */
+.figure-paths:hover path:not(:hover) {
+  stroke: grey;
+  fill: grey;
+  filter: blur(2px);
+  transition: all 0.3s ease;
 }
 
-.figures img.gray {
-  filter: grayscale(100%);
-}
-
-.gray {
-  filter: grayscale(100%) !important; /* Make sure grayscale is applied */
-}
-
-/* Add to style.css */
-
+/* Clock Styles */
 .digital-clock {
   position: absolute;
-  top: 5%; /* Changed from bottom */
+  top: 5%;
   right: 15%;
-  color: white; /* Changed from black */
+  color: white;
   padding: 10px;
   font-family: "Digital", monospace;
   font-size: 4rem;
-  z-index: 15; /* Make sure it's above the characters */
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add glow effect */
+  z-index: 15;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Add this to your style.css */
+/* Modal Styles */
 .info-modal {
   position: fixed;
   top: 50%;
@@ -253,10 +215,11 @@ body {
   margin: 10px 0;
 }
 
-/* Add at the bottom of style.css */
+/* Dark Mode Styles */
 body.dark-mode .background {
-  background-image: url("assets/nacht.png"); /* Your night image placeholder */
-  background-color: rgba(0, 0, 32, 0.7); /* Darker blue overlay */
+  background-image: url("assets/nacht.png");
+  background-color: rgba(0, 0, 32, 0.7);
+  filter: none;
 }
 
 body.dark-mode .movie-title h1 {
@@ -268,14 +231,9 @@ body.dark-mode .weather-info,
 body.dark-mode .snow-info {
   color: #e0e0e0;
 }
+
 body.dark-mode .figures img {
   filter: grayscale(100%) brightness(0.8);
-}
-
-body.dark-mode .background {
-  background-image: url("assets/nacht.png");
-  background-color: rgba(0, 0, 32, 0.7);
-  filter: none;
 }
 
 body.dark-mode .digital-clock {
@@ -283,7 +241,7 @@ body.dark-mode .digital-clock {
     0 0 20px rgba(255, 255, 255, 0.8);
 }
 
-/* Add to style.css */
+/* Map Overlay Styles */
 .map-overlay {
   position: fixed;
   top: 50%;
@@ -330,6 +288,7 @@ body.dark-mode .digital-clock {
   cursor: pointer;
 }
 
+/* Spinner Styles */
 .spinner-container {
   position: fixed;
   top: 50%;
